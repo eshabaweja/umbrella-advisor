@@ -21,7 +21,7 @@ searchBtn.addEventListener(`click`, function () {
                 /* document.querySelector(`#advice`).innerText = element.advice; */
 
                 let newcontent = document.createElement(`div`);
-                newcontent.innerText = element.advice;
+                newcontent.innerHTML = `<div class="quote">${element.advice}</div>`;
                 /* newcontent.classList.add(`quote`); */
 
                 while (newcontent.firstChild) {
@@ -34,7 +34,7 @@ searchBtn.addEventListener(`click`, function () {
 
         .catch((err)=>{
             const adv = document.getElementById(`advice`);
-            adv.innerHTML = "Sorry, love! Looks like we're out of stock on those.";        
+            adv.innerHTML = `<div class="quote">"Sorry, love! Looks like we're out of stock on those."</div>`;  //template string      
         });
 });
 
@@ -45,7 +45,7 @@ randomBtn.addEventListener(`click`, function () {
     fetch(url)
         .then(response => response.json()) //converting to JSON
         .then(data => {
-            document.querySelector(`#advice`).innerText = (data.slip.advice);
+            document.querySelector(`#advice`).innerHTML = `<div class="quote">${data.slip.advice}</div>`;
         })
 });
 
